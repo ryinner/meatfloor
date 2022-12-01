@@ -1,0 +1,62 @@
+@import "./fonts-face";
+
+@include font-face-variations('Inter', 'Inter-VariableFont_slnt,wght');
+@include font-face('PostNoBillsJaffna', 'PostNoBillsJaffna-Bold.woff', 700, "bold");
+@include font-face('GreatVibes', 'GreatVibes-Regular.ttf', 400, "regular");
+@include font-face('Helvetica', 'Helvetica-bold.otf', 700, "bold");
+
+@mixin post-no-bills-jaffna-24-bold {
+    font-family: "PostNoBillsJaffna";
+    font-weight: 700;
+    line-height: 32px;
+    font-size: 24px;
+}
+
+@mixin helvetica-24-bold {
+    font-family: "Helvetica";
+    font-weight: 700;
+    line-height: 32px;
+    font-size: 24px;
+}
+
+@mixin helvetica-40-bold {
+    font-family: "Helvetica";
+    font-weight: 700;
+    line-height: 48px;
+    font-size: 40px;
+}
+
+@mixin helvetica-60-bold {
+    font-family: "Helvetica";
+    font-weight: 700;
+    line-height: 98px;
+    font-size: 60px;
+}
+
+@mixin inter-16-regular {
+    font-family: "Inter";
+    font-weight: 400;
+    line-height: 24px;
+    font-size: 16px;
+}
+
+@mixin inter-18-regular {
+    font-family: "Inter";
+    font-weight: 400;
+    line-height: 26px;
+    font-size: 18px;
+}
+
+@mixin inter-20-bold {
+    font-family: "Inter";
+    font-weight: 700;
+    line-height: 26px;
+    font-size: 28px;
+}
+
+@mixin great-vibes-32-regular {
+    font-family: "GreatVibes";
+    font-weight: 400;
+    line-height: 40px;
+    font-size: 32px;
+}

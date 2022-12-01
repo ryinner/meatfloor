@@ -1,0 +1,13 @@
+@mixin margin-right($margin) {
+    &:not(:last-child) {
+        margin-right: $margin;
+    }
+}
+
+@mixin margin-vertical($margin) {
+    margin: $margin 0;
+}
+
+@mixin padding-vertical($padding) {
+    padding: $padding 0;
+}
