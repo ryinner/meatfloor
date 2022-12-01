@@ -6,4 +6,4 @@ const app = createApp({
     render: () => h(App)
 });
 app.use(router);
-app.mount("#app");
+app.mount("body");

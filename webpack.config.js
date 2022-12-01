@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const { VueLoaderPlugin } = require("vue-loader");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: "development",
@@ -9,7 +10,7 @@ module.exports = {
     },
     output: {
         clean: true,
-        path: path.resolve(__dirname, "public/assets/"),
+        path: path.resolve(__dirname, "public/"),
         filename: "[name].js",
         chunkFilename: "[name].js"
     },
@@ -63,6 +64,9 @@ module.exports = {
         new webpack.DefinePlugin({
             __VUE_OPTIONS_API__: false,
             __VUE_PROD_DEVTOOLS__: false
+        }),
+        new HtmlWebpackPlugin({
+            title: "Meatfloor",
         }),
     ],
     devServer: {
