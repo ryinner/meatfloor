@@ -16,6 +16,12 @@ import TheHeader from './Shared/Components/Layout/TheHeader/TheHeader.vue';
 </script>
 
 <style lang="scss">
+@import "@/Shared/Assets/Scss/fonts-face";
+@include font-face-variations('Inter', 'Inter-VariableFont_slnt,wght');
+@include font-face('PostNoBillsJaffna', 'PostNoBillsJaffna-Bold.woff', 700, "bold");
+@include font-face('GreatVibes', 'GreatVibes-Regular.ttf', 400, "regular");
+@include font-face('Helvetica', 'Helvetica-bold.otf', 700, "bold");
+
 * {
     margin: 0;
     padding: 0;
