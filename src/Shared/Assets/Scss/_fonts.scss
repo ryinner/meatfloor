@@ -26,6 +26,13 @@
     font-size: 60px;
 }
 
+@mixin inter-14-regular {
+    font-family: "Inter";
+    font-weight: 400;
+    line-height: 22px;
+    font-size: 14px;
+}
+
 @mixin inter-16-regular {
     font-family: "Inter";
     font-weight: 400;
@@ -36,6 +43,13 @@
 @mixin inter-18-regular {
     font-family: "Inter";
     font-weight: 400;
+    line-height: 26px;
+    font-size: 18px;
+}
+
+@mixin inter-18-bold {
+    font-family: "Inter";
+    font-weight: 700;
     line-height: 26px;
     font-size: 18px;
 }
