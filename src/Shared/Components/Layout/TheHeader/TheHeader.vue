@@ -7,7 +7,9 @@
                 </RouterLink>
             </div>
             <div class="header__navigation">
-                <TheNavigation />
+                <NavigationList
+                    :navigation="Navigation"
+                />
             </div>
             <div class="header__controls">
                 <TheSearch class="header__button"/>
@@ -19,11 +21,12 @@
 </template>
 
 <script setup>
-import TheNavigation from "../TheNavigation/TheNavigation.vue";
+import Navigation from "@/Shared/Assets/Maps/Navigation.js";
+import { useRoute } from "vue-router";
+import NavigationList from "../NavigationList/NavigationList.vue";
+import TheCart from "../TheCart/TheCart.vue";
 import TheSearch from "../TheSearch/TheSearch.vue";
 import TheUser from "../TheUser/TheUser.vue";
-import TheCart from "../TheCart/TheCart.vue";
-import {useRoute} from "vue-router";
 
 const route = useRoute();
 </script>

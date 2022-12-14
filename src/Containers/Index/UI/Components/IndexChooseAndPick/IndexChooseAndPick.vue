@@ -22,13 +22,13 @@
                     <div class="index-menu__food">
                         <div class="index-menu__selected-category">
                             <picture>
-                                <img :src="selectedCategory.image" :alt="selectedCategory.name">
+                                <img :src="selectedCategory.image" :alt="selectedCategory.name" />
                             </picture>
                         </div>
                         <div class="index-menu__selected-category-food">
                             <div class="index-menu__dish" v-for="dish in selectedCategory.dishes" :key="dish.id">
                                 <picture class="index-menu__dish-image">
-                                    <img :src="dish.image" :alt="dish.name">
+                                    <img :src="dish.image" :alt="dish.name" />
                                 </picture>
                                 <div class="index-menu__dish-info">
                                     <div class="index-menu__dish-name" :title="dish.name">{{dish.name}}</div>

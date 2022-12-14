@@ -2,7 +2,7 @@
     <section class="index-about-food">
         <div class="index-about-food__background">
             <picture>
-                <img src="@/Containers/Index/UI/Assets/Images/index-background-grass.png" alt="Красивая еда" loading="lazy">
+                <img src="@/Containers/Index/UI/Assets/Images/index-background-grass.png" alt="Красивая еда" loading="lazy" />
             </picture>
         </div>
         <div class="index-about-food__container">
@@ -14,16 +14,16 @@
             </div>
             <div class="index-about-food__food">
                 <picture class="index-about-food__food-item">
-                    <img src="@/Containers/Index/UI/Assets/Images/index-aboutfood-1.png" alt="Красивая еда" loading="lazy">
+                    <img src="@/Containers/Index/UI/Assets/Images/index-aboutfood-1.png" alt="Красивая еда" loading="lazy" />
                 </picture>
                 <picture class="index-about-food__food-item">
-                    <img src="@/Containers/Index/UI/Assets/Images/index-aboutfood-2.png" alt="Красивая еда" loading="lazy">
+                    <img src="@/Containers/Index/UI/Assets/Images/index-aboutfood-2.png" alt="Красивая еда" loading="lazy" />
                 </picture>
                 <picture class="index-about-food__food-item">
-                    <img src="@/Containers/Index/UI/Assets/Images/index-aboutfood-3.png" alt="Красивая еда" loading="lazy">
+                    <img src="@/Containers/Index/UI/Assets/Images/index-aboutfood-3.png" alt="Красивая еда" loading="lazy" />
                 </picture>
                 <picture class="index-about-food__food-item">
-                    <img src="@/Containers/Index/UI/Assets/Images/index-aboutfood-4.png" alt="Красивая еда" loading="lazy">
+                    <img src="@/Containers/Index/UI/Assets/Images/index-aboutfood-4.png" alt="Красивая еда" loading="lazy" />
                 </picture>
             </div>
         </div>

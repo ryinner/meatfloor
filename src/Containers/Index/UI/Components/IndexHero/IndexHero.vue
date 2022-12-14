@@ -2,7 +2,7 @@
     <section class="index-hero">
         <div class="index-hero__background">
             <picture>
-                <img class="index-hero__background-image" src="@/Containers/Index/UI/Assets/Images/index-hero.png">
+                <img class="index-hero__background-image" src="@/Containers/Index/UI/Assets/Images/index-hero.png" />
             </picture>
         </div>
         <div class="index-hero__container">
@@ -14,7 +14,7 @@
             </div>
             <div class="index-hero__food">
                 <picture>
-                    <img src="@/Containers/Index/UI/Assets/Images/index-hero-food.png" alt="Ну очень красивое блюдо">
+                    <img src="@/Containers/Index/UI/Assets/Images/index-hero-food.png" alt="Ну очень красивое блюдо" />
                 </picture>
             </div>
         </div>

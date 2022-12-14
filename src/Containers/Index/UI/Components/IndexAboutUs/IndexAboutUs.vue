@@ -19,13 +19,13 @@
             </div>
             <div class="index-about-us__food">
                 <picture class="index-about-us__food-main">
-                    <img src="@/Containers/Index/UI/Assets/Images/index-aboutus-food-1.png" alt="Красивая тарелка с яйцом" loading="lazy">
+                    <img src="@/Containers/Index/UI/Assets/Images/index-aboutus-food-1.png" alt="Красивая тарелка с яйцом" loading="lazy" />
                 </picture>
                 <picture class="index-about-us__food-secondary">
-                    <img src="@/Containers/Index/UI/Assets/Images/index-aboutus-food-2.png" alt="Красивая тарелка с мясом" loading="lazy">
+                    <img src="@/Containers/Index/UI/Assets/Images/index-aboutus-food-2.png" alt="Красивая тарелка с мясом" loading="lazy" />
                 </picture>
                 <picture class="index-about-us__food-secondary">
-                    <img src="@/Containers/Index/UI/Assets/Images/index-aboutus-food-3.png" alt="Красивая тарелка с тостами" loading="lazy">
+                    <img src="@/Containers/Index/UI/Assets/Images/index-aboutus-food-3.png" alt="Красивая тарелка с тостами" loading="lazy" />
                 </picture>
             </div>
         </div>

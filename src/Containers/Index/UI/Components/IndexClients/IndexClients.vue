@@ -2,7 +2,7 @@
     <section class="index-clients">
         <div class="index-clients__background">
             <picture>
-                <img src="@/Containers/Index/UI/Assets/Images/index-clients.png" alt="Очень вкусная рыба">
+                <img src="@/Containers/Index/UI/Assets/Images/index-clients.png" alt="Очень вкусная рыба" />
             </picture>
         </div>
         <div class="index-clients__container">

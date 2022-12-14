@@ -24,3 +24,9 @@
 @mixin section-padding {
     padding-top: 120px;
 }
+
+@mixin icon {
+    padding: 10px;
+    border-radius: 6px;
+    background-color: $primary-color;
+}

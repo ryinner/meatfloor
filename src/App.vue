@@ -8,9 +8,11 @@
         </RouterView>
     </main>
     <TheFooter />
+    <TheCopyright />
 </template>
 
 <script setup>
+import TheCopyright from './Shared/Components/Layout/TheCopyRight/TheCopyright.vue';
 import TheFooter from './Shared/Components/Layout/TheFooter/TheFooter.vue';
 import TheHeader from './Shared/Components/Layout/TheHeader/TheHeader.vue';
 </script>

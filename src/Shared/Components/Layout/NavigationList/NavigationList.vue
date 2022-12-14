@@ -1,7 +1,7 @@
 <template>
     <nav class="navigation">
-        <ul class="navigation__list">
-            <li class="navigation__item" v-for="(navigationItem, index) in Navigation" :key="index">
+        <ul class="navigation__list" :class="{'navigation__list--column': align === 'column'}">
+            <li class="navigation__item" v-for="(navigationItem, index) in navigation" :key="index">
                 <RouterLink class="navigation__link" :to="{name: navigationItem.route}">{{navigationItem.name}}</RouterLink>
             </li>
         </ul>
@@ -9,7 +9,16 @@
 </template>
 
 <script setup>
-import Navigation from "@/Shared/Assets/Maps/Navigation.js";
+defineProps({
+    align: {
+        type: String,
+        default: "row"
+    },
+    navigation: {
+        type: Array,
+        required: true,
+    }
+});
 </script>
 
 <style lang="scss">
@@ -21,6 +30,12 @@ import Navigation from "@/Shared/Assets/Maps/Navigation.js";
     &__list {
         display: flex;
         list-style-type: none;
+        &--column {
+            flex-direction: column;
+        }
+    }
+    &__list--column &__item {
+        @include margin-bottom(20px);
     }
     &__item {
         @include margin-right(20px);

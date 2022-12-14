@@ -3,23 +3,23 @@
         <div class="index-why-choose-us__container">
             <div class="index-why-choose-us__food">
                 <picture class="index-why-choose-us__food-item index-why-choose-us__food-item--first">
-                    <img src="@/Containers/Index/UI/Assets/Images/why-choose-us-1.png" alt="Красивая еда" loading="lazy">
+                    <img src="@/Containers/Index/UI/Assets/Images/why-choose-us-1.png" alt="Красивая еда" loading="lazy" />
                 </picture>
                 <picture class="index-why-choose-us__food-item index-why-choose-us__food-item--second">
-                    <img src="@/Containers/Index/UI/Assets/Images/why-choose-us-2.png" alt="Красивая еда" loading="lazy">
+                    <img src="@/Containers/Index/UI/Assets/Images/why-choose-us-2.png" alt="Красивая еда" loading="lazy" />
                 </picture>
                 <picture class="index-why-choose-us__food-item index-why-choose-us__food-item--third">
-                    <img src="@/Containers/Index/UI/Assets/Images/why-choose-us-3.png" alt="Красивая еда" loading="lazy">
+                    <img src="@/Containers/Index/UI/Assets/Images/why-choose-us-3.png" alt="Красивая еда" loading="lazy" />
                 </picture>
                 <picture class="index-why-choose-us__food-item index-why-choose-us__food-item--four">
-                    <img src="@/Containers/Index/UI/Assets/Images/why-choose-us-4.png" alt="Красивая еда" loading="lazy">
+                    <img src="@/Containers/Index/UI/Assets/Images/why-choose-us-4.png" alt="Красивая еда" loading="lazy" />
                 </picture>
                 <div class="index-why-choose-us__food-item index-why-choose-us__food-item--fives">
                     <picture class="index-why-choose-us__food-item index-why-choose-us__food-item--sixes">
-                    <img src="@/Containers/Index/UI/Assets/Images/why-choose-us-5.png" alt="Красивая еда" loading="lazy">
+                        <img src="@/Containers/Index/UI/Assets/Images/why-choose-us-5.png" alt="Красивая еда" loading="lazy" />
                     </picture>
                     <picture class="index-why-choose-us__food-item index-why-choose-us__food-item--sevens">
-                        <img src="@/Containers/Index/UI/Assets/Images/why-choose-us-6.png" alt="Красивая еда" loading="lazy">
+                        <img src="@/Containers/Index/UI/Assets/Images/why-choose-us-6.png" alt="Красивая еда" loading="lazy" />
                     </picture>
                 </div>
             </div>
@@ -142,9 +142,7 @@ import BaseHeading from '@/Shared/Components/BaseHeading/BaseHeading.vue';
         grid-column: 3 span;
     }
     &__food-icon {
-        padding: 10px;
-        border-radius: 6px;
-        background-color: $primary-color;
+        @include icon;
     }
     &__icon-heading {
         color: $white-color;

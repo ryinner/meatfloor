@@ -4,6 +4,12 @@
     }
 }
 
+@mixin margin-bottom($margin) {
+    &:not(:last-child) {
+        margin-bottom: $margin;
+    }
+}
+
 @mixin margin-vertical($margin) {
     margin: $margin 0;
 }
