@@ -6,12 +6,20 @@
                 <path d="M2.90527 20.2491C3.82736 18.6531 5.15322 17.3278 6.74966 16.4064C8.34611 15.485 10.1569 15 12.0002 15C13.8434 15 15.6542 15.4851 17.2506 16.4065C18.8471 17.3279 20.1729 18.6533 21.0949 20.2493" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </picture>
-        <BaseModal :isShow="isModalOpen" class="auth registration" @close="isModalOpen = false">
-            <template #heading><h4 class="auth__header">Войти</h4></template>
+        <BaseModal :isShow="isModalOpen" @close="isModalOpen = false">
+            <template #heading>
+                <h4 class="modal-auth__header">
+                    <span class="modal-auth__switcher" @click="modalTab = TheAuth">
+                        Войти
+                    </span> 
+                    / 
+                    <span class="modal-auth__switcher" @click="modalTab = TheRegistration">
+                        Регистрация
+                    </span>
+                </h4>
+            </template>
             <template #body>
-                <form @submit.prevent="">
-                    <BaseInput :inputAttrs="{name: 'login', type: 'text', placeholder: 'Логин'}" />
-                </form>
+                <Component :is="modalTab" />
             </template>
         </BaseModal>
     </div>
@@ -19,14 +27,17 @@
 
 <script setup>
 import { ref } from "vue";
-import BaseInput from "../../BaseInput/BaseInput.vue";
 import BaseModal from '../../BaseModal/BaseModal.vue';
+import TheAuth from "../TheAuth/TheAuth.vue";
+import TheRegistration from "../TheRegistration/TheRegistration.vue";
 
 const isModalOpen = ref(false);
+const modalTab = ref(TheAuth);
 </script>
 
 <style lang="scss">
 @import "@/Shared/Assets/Scss/icon";
+@import "@/Shared/Assets/Scss/fonts";
 .user {
     &__image {
         @include icon-24;
@@ -35,7 +46,16 @@ const isModalOpen = ref(false);
         @include icon-base-style;
     }
 }
-.auth {
-
+.modal-auth {
+    &__header {
+        @include inter-18-regular;
+    }
+    &__switcher {
+        cursor: pointer;
+    }
+    &__button {
+        width: 100%;
+        margin-top: 24px;
+    }
 }
 </style>

@@ -1,11 +1,17 @@
 <template>
-    <button class="button">
-        <slot></slot>
+    <button class="button" :class="`button--${size}`">
+        <slot />
     </button>
 </template>
 
 <script setup>
-
+defineProps({
+    size: {
+        type: String,
+        default: "lg",
+        validator: (value) => ["sm", "md", "lg"].includes(value),
+    }
+})
 </script>
 
 <style lang="scss">
@@ -16,11 +22,17 @@
     color: $white-color;
     background-color: $primary-color;
     cursor: pointer;
-    padding: 12px 24px;
     border-radius: 32px;
     transition: 300ms all ease-in;
     border: 1px solid transparent;
-    @include inter-16-regular;
+    &--sm {
+        padding: 6px 12px;
+        @include inter-14-regular;
+    }
+    &--lg {
+        padding: 12px 24px;
+        @include inter-16-regular;
+    }
     &:hover {
         color: $white-color;
         background-color: $black-color;

@@ -22,7 +22,7 @@ defineProps({
 @import "@/Shared/Assets/Scss/touch";
 .input {
     position: relative;
-
+    @include margin-vertical(6px);
     &__label {
         top: -6px;
         display: block;
@@ -40,11 +40,18 @@ defineProps({
         border-bottom: 1px solid $gray-color;
         background: transparent;
         transition: border-color 0.2s;
-        @include padding-vertical(7px);
+        
+        @include padding-vertical(6px);
         @include inter-14-regular;
 
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0px 1000px $white-color inset;
+        }
+
         &::placeholder {
-            color: $gray-color;
+            color: transparent;
         }
         &:placeholder-shown ~ .input__label {
             color: $gray-color;

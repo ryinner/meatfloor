@@ -35,6 +35,7 @@ export default {
 @import "@/Shared/Assets/Scss/positions";
 @import "@/Shared/Assets/Scss/vars";
 @import "@/Shared/Assets/Scss/transitions";
+@import "@/Shared/Assets/Scss/indention";
 .modal {
     top: 0;
     left: 0;
@@ -57,12 +58,19 @@ export default {
     }
     &__content {
         min-height: 200px;
-        min-width: 300px;
+        min-width: 320px;
         padding: 20px 30px;
         background-color: $white-color;
         border-radius: 4px;
         position: relative;
         z-index: 12;
+    }
+    &__heading {
+        border-bottom: 1px solid $black-color;
+        @include padding-vertical(4px);
+    }
+    &__body {
+        @include padding-vertical(6px);
     }
 }
 </style>
