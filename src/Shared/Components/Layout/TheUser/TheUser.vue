@@ -6,33 +6,17 @@
                 <path d="M2.90527 20.2491C3.82736 18.6531 5.15322 17.3278 6.74966 16.4064C8.34611 15.485 10.1569 15 12.0002 15C13.8434 15 15.6542 15.4851 17.2506 16.4065C18.8471 17.3279 20.1729 18.6533 21.0949 20.2493" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </picture>
-        <BaseModal :isShow="isModalOpen" @close="isModalOpen = false">
-            <template #heading>
-                <h4 class="modal-auth__header">
-                    <span class="modal-auth__switcher" @click="modalTab = TheAuth">
-                        Войти
-                    </span> 
-                    / 
-                    <span class="modal-auth__switcher" @click="modalTab = TheRegistration">
-                        Регистрация
-                    </span>
-                </h4>
-            </template>
-            <template #body>
-                <Component :is="modalTab" />
-            </template>
-        </BaseModal>
+        <TheAuthModal v-if="!userState.isAuthenticated" v-model:isModalOpen="isModalOpen" />
     </div>
 </template>
 
 <script setup>
+import { useUserStore } from "@/Shared/State/useUserStore/useUserStore";
 import { ref } from "vue";
-import BaseModal from '../../BaseModal/BaseModal.vue';
-import TheAuth from "../TheAuth/TheAuth.vue";
-import TheRegistration from "../TheRegistration/TheRegistration.vue";
+import TheAuthModal from "../TheAuthModal/TheAuthModal.vue";
 
+const userState = useUserStore();
 const isModalOpen = ref(false);
-const modalTab = ref(TheAuth);
 </script>
 
 <style lang="scss">

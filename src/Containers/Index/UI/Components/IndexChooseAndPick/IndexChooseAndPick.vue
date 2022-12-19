@@ -9,7 +9,7 @@
             </div>
             <div class="index-choose-and-pick__menu index-menu" v-scroll="getMenu">
                 <div class="index-menu__categories">
-                    <ul class="index-menu__categories-list">
+                    <ul class="index-menu__categories-list" v-if="!loading">
                         <li
                             v-for="category in categories" :key="category.id"
                             @click="changeSelectedCategory(category)"
@@ -21,11 +21,12 @@
                     </ul>
                     <div class="index-menu__food">
                         <div class="index-menu__selected-category">
-                            <picture>
+                            <picture v-if="!loading">
                                 <img :src="selectedCategory.image" :alt="selectedCategory.name" />
                             </picture>
+                            <BaseLoading v-else />
                         </div>
-                        <div class="index-menu__selected-category-food">
+                        <div class="index-menu__selected-category-food" v-if="!loading">
                             <div class="index-menu__dish" v-for="dish in selectedCategory.dishes" :key="dish.id">
                                 <picture class="index-menu__dish-image">
                                     <img :src="dish.image" :alt="dish.name" />
@@ -34,6 +35,16 @@
                                     <div class="index-menu__dish-name" :title="dish.name">{{dish.name}}</div>
                                     <div class="index-menu__dish-description" :title="dish.description">{{dish.description}}</div>
                                     <div class="index-menu__dish-price">{{dish.price}} руб.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="index-menu__selected-category-food" v-else>
+                            <div class="index-menu__dish" v-for="n in 4" :key="n">
+                                <BaseLoading class="index-menu__dish-image"/>
+                                <div class="index-menu__dish-info">
+                                    <div class="index-menu__dish-loading-text"><BaseLoading/></div>
+                                    <div class="index-menu__dish-loading-text"><BaseLoading/></div>
+                                    <div class="index-menu__dish-loading-text"><BaseLoading/></div>
                                 </div>
                             </div>
                         </div>
@@ -47,13 +58,16 @@
 <script setup>
 import { getIndexMenu } from "@/Containers/Index/Functional/Api/index.api";
 import BaseHeading from '@/Shared/Components/BaseHeading/BaseHeading.vue';
+import BaseLoading from "@/Shared/Components/BaseLoading/BaseLoading.vue";
 import { ref } from "vue";
 
+const loading = ref(true);
 const categories = ref([]);
 const selectedCategory = ref({});
 const getMenu = async () => await getIndexMenu().then(response => {
     categories.value = response.data;
     selectedCategory.value = categories.value[0];
+    loading.value = false;
 });
 const changeSelectedCategory = (category) => {
     selectedCategory.value = category;
@@ -123,6 +137,11 @@ const changeSelectedCategory = (category) => {
         }
         &-info {
             grid-column: 5 span;
+        }
+        &-loading-text {
+            height: 14px;
+            width: 100%;
+            @include margin-bottom(12px);
         }
         &-name {
             color: $white-color;

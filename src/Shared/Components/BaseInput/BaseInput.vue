@@ -1,18 +1,32 @@
 <template>
     <div class="input">
-        <input class="input__field" v-bind="inputAttrs" />
+        <input class="input__field" :class="{'input__field--error': haveErrors}" v-bind="inputAttrs" />
         <label v-if="inputAttrs.placeholder?.length > 0" class="input__label">{{inputAttrs.placeholder}}</label>
+        <template v-if="haveErrors">
+            <div class="input__errors" v-for="error in errors" :key="error">
+                <span class="input__errors-item">{{error}}</span>
+            </div>
+        </template>
     </div>
 </template>
 
 <script setup>
-defineProps({
+import { computed } from "vue";
+
+const props = defineProps({
     inputAttrs: {
         type: Object,
         required: false,
         default: () => ({})
     },
-})
+    errors: {
+        type: Array,
+        required: false,
+        default: () => ([])
+    }
+});
+
+const haveErrors = computed(() => props.errors.length > 0)
 </script>
 
 <style lang="scss">
@@ -24,7 +38,7 @@ defineProps({
     position: relative;
     @include margin-vertical(6px);
     &__label {
-        top: -6px;
+        top: -8px;
         display: block;
         transition: 0.2s;
         position: absolute;
@@ -34,15 +48,18 @@ defineProps({
     }
     &__field {
         margin-top: 2px;
-        outline: 0;
+        outline: 0; 
         border: 0;
         width: 100%;
         border-bottom: 1px solid $gray-color;
         background: transparent;
         transition: border-color 0.2s;
-        
         @include padding-vertical(6px);
         @include inter-14-regular;
+
+        &--error {
+            border-bottom: 1px solid $red-color !important;
+        }
 
         &:-webkit-autofill,
         &:-webkit-autofill:hover,
@@ -70,6 +87,16 @@ defineProps({
                 @include inter-12-bold;
             }
         }
+    }
+
+    &__errors {
+        margin-bottom: 12px;
+    }
+
+    &__errors-item {
+        color: $red-color;
+        @include inter-12-regular;
+        @include margin-right(4px);
     }
 }
 </style>

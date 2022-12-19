@@ -10,13 +10,12 @@ export default {
     setup(props, context) {
         const headingId = getChildrenTextContent(context.slots.default()).toLowerCase().replace(/[^а-яА-Яa-zA-Z0-9]+/g, '-').replace(/(^-|-$)/g, '');
         function getChildrenTextContent(children) {
-            return children.map(node => {
-                return typeof node.children === 'string'
-                    ? node.children
-                    : Array.isArray(node.children)
-                        ? getChildrenTextContent(node.children)
-                        : '';
-            }).join('');
+            return children.map(node => typeof node.children === 'string'
+                ? node.children
+                : Array.isArray(node.children)
+                    ? getChildrenTextContent(node.children)
+                    : '')
+                .join('');
         }
         return () => h(
             `h${props.level}`,
