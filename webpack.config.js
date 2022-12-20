@@ -4,7 +4,7 @@ const { VueLoaderPlugin } = require("vue-loader");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: "development",
+    mode: process.env.NODE_ENV,
     entry: {
         "app": "./src/index.js",
     },
@@ -68,6 +68,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "Meatfloor",
         }),
+        new webpack.DefinePlugin({
+            "process.env": JSON.stringify({
+                API_URL: (process.env.NODE_ENV === "production" ? 'http://a90686jj.beget.tech/' : 'http://meatfloor/')
+            })
+        })
     ],
     devServer: {
         static:  path.join(__dirname, "public"),

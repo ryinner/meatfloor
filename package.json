@@ -5,30 +5,37 @@
   "main": "index.js",
   "scripts": {
     "test": "vitest run",
-    "build": "webpack --config webpack.config.js",
-    "serve": "webpack serve --config webpack.config.js"
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "serve": "cross-env NODE_ENV=development webpack serve --config webpack.config.js"
   },
   "keywords": [
     "vue"
   ],
   "author": "",
   "license": "ISC",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
   "devDependencies": {
     "@testing-library/vue": "^6.6.1",
-    "@vitejs/plugin-vue": "^3.2.0",
+    "@vitejs/plugin-vue": "^4.0.0",
     "axios": "^1.2.1",
     "babel-loader": "^9.1.0",
-    "css-loader": "^6.7.2",
+    "buffer": "^6.0.3",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.7.3",
     "dev-server": "^0.2.0",
-    "eslint": "^8.29.0",
+    "eslint": "^8.30.0",
     "eslint-plugin-vue": "^9.8.0",
     "html-webpack-plugin": "^5.5.0",
     "node-sass": "^8.0.0",
     "pinia": "^2.0.28",
-    "sass": "^1.56.1",
+    "sass": "^1.57.1",
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
-    "vitest": "^0.25.5",
+    "vitest": "^0.26.1",
     "vue": "^3.2.45",
     "vue-loader": "^17.0.1",
     "vue-router": "^4.1.6",
@@ -36,8 +43,5 @@
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"
-  },
-  "dependencies": {
-    "buffer": "^6.0.3"
   }
 }

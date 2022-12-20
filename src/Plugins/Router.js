@@ -1,8 +1,10 @@
-import { createRouter, createWebHistory } from "vue-router";
 import IndexRoutes from "@/Containers/Index/UI/Routes/IndexRoutes";
+import IndexViewVue from "@/Containers/Index/UI/View/Index/IndexView.vue";
+import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [].concat(
-    IndexRoutes
+    IndexRoutes,
+    [{ path: '/:pathMatch(.*)*', name: 'NotFound', component: IndexViewVue }],
 );
 
 const router = createRouter({
