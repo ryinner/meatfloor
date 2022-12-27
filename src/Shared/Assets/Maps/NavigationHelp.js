@@ -5,7 +5,7 @@ export default [
     },
     {
         name: "Пользовательское соглашение",
-        route: "index"
+        route: "users-agreement"
     },
     {
         name: "Обратная связь",
