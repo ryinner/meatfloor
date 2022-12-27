@@ -13,7 +13,7 @@ export default [
     },
     {
         name: "Бронирование",
-        route: "index"
+        route: "booking"
     },
     {
         name: "О нас",

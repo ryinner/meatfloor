@@ -73,7 +73,6 @@ import NavigationList from "../NavigationList/NavigationList.vue";
     position: relative;
     background-color: $black-color;
     padding-bottom: 50px;
-    @include section-padding;
     &__border {
         width: 60%;
         margin: 120px auto;

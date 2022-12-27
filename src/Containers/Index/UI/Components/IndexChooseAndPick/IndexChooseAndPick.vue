@@ -120,6 +120,8 @@ const changeSelectedCategory = (category) => {
         @include grid-row;
     }
     &__selected-category {
+        height: 300px;
+        display: flex;
         grid-column: 4 span;
     }
     &__selected-category-food {
@@ -127,7 +129,7 @@ const changeSelectedCategory = (category) => {
     }
     &__dish {
         gap: 10px;
-        height: 100px;
+        height: 110px;
         grid-column: 6 span;
         @include grid-row(6);
         &-image {

@@ -2,7 +2,7 @@
     <TheHeader />
     <main>
         <RouterView v-slot="{ Component }">
-            <Transition>
+            <Transition name="app-fade">
                 <Component :is="Component" />
             </Transition>
         </RouterView>
@@ -19,6 +19,8 @@ import TheHeader from './Shared/Components/Layout/TheHeader/TheHeader.vue';
 
 <style lang="scss">
 @import "@/Shared/Assets/Scss/fonts-face";
+@import "@/Shared/Assets/Scss/transitions";
+@import "@/Shared/Assets/Scss/vars";
 @include font-face-variations('Inter', 'Inter-VariableFont_slnt,wght');
 @include font-face('PostNoBillsJaffna', 'PostNoBillsJaffna-Bold.woff', 700, "bold");
 @include font-face('GreatVibes', 'GreatVibes-Regular.ttf', 400, "regular");
@@ -28,6 +30,10 @@ import TheHeader from './Shared/Components/Layout/TheHeader/TheHeader.vue';
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    background: $black-color;
 }
 
 picture {
@@ -42,5 +48,9 @@ img {
 
 a {
     text-decoration: none;
+}
+
+.app-fade {
+    @include fade;
 }
 </style>
