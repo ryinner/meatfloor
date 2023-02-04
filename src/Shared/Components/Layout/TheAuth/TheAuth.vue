@@ -1,7 +1,7 @@
 <template>
     <form @submit.prevent="auth" class="modal-auth__form" ref="form">
-        <BaseInput :inputAttrs="{name: 'login', type: 'text', placeholder: 'Номер телефона или почта'}" />
-        <BaseInput :inputAttrs="{name: 'password', type: 'password', placeholder: 'Пароль'}" />
+        <BaseInput :inputAttrs="{name: 'login', type: 'text', placeholder: 'Номер телефона или почта', required: true}" />
+        <BaseInput :inputAttrs="{name: 'password', type: 'password', placeholder: 'Пароль', required: true}" />
         <BaseButton size="sm" class="modal-auth__button">Войти</BaseButton>
     </form>
 </template>

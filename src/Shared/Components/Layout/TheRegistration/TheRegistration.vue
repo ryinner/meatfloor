@@ -1,9 +1,9 @@
 <template>
     <form @submit.prevent="registration" class="modal-auth__form" ref="form">
-        <BaseInput :inputAttrs="{name: 'fio', type: 'text', placeholder: 'ФИО'}" />
-        <BaseInput :inputAttrs="{name: 'phone', type: 'text', placeholder: 'Номер телефона'}" :errors="errors?.phone" />
-        <BaseInput :inputAttrs="{name: 'email', type: 'email', placeholder: 'Почта'}" :errors="errors?.email" />
-        <BaseInput :inputAttrs="{name: 'password', type: 'password', placeholder: 'Пароль'}" />
+        <BaseInput :inputAttrs="{name: 'fio', type: 'text', placeholder: 'ФИО', required: true}" />
+        <BaseInput :inputAttrs="{name: 'phone', type: 'text', placeholder: 'Номер телефона', required: true}" :errors="errors?.phone" />
+        <BaseInput :inputAttrs="{name: 'email', type: 'email', placeholder: 'Почта', required: true}" :errors="errors?.email" />
+        <BaseInput :inputAttrs="{name: 'password', type: 'password', placeholder: 'Пароль', required: true}" />
         <BaseButton size="sm" class="modal-auth__button">Создать аккаунт</BaseButton>
     </form>
 </template>

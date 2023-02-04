@@ -1,0 +1,28 @@
+@import "@/Shared/Assets/Scss/vars";
+@import "@/Shared/Assets/Scss/fonts";
+@import "@/Shared/Assets/Scss/indention";
+
+@mixin errors-text {
+    text-align: center;
+    margin-top: 40px;
+
+    &__header {
+        color: $primary-color;
+        @include helvetica-96-bold;
+    }
+
+    &__heading {
+        color: $white-color;
+        @include margin-vertical(30px);
+        @include helvetica-40-bold;
+    }
+
+    &__text {
+        color: $white-color;
+        @include inter-18-regular;
+    }
+
+    &__helper {
+        @include margin-vertical(50px);
+    }
+}

@@ -26,6 +26,13 @@
     font-size: 60px;
 }
 
+@mixin helvetica-96-bold {
+    font-family: "Helvetica";
+    font-weight: 700;
+    line-height: 104px;
+    font-size: 96px;
+}
+
 @mixin inter-12-regular {
     font-family: "Inter";
     font-weight: 400;

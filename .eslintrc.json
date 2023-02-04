@@ -57,10 +57,7 @@
         "vue/custom-event-name-casing": ["error", "camelCase"],
         "vue/multi-word-component-names": ["error", {
             "ignores": [
-                "Pagination",
-                "Tabs",
-                "Dropdown",
-                "Checkbox"
+                "Error404"
             ]
         }]
     }
