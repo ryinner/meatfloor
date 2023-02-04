@@ -1,7 +1,7 @@
 <template>
     <div class="input">
         <input class="input__field" :class="{'input__field--error': haveErrors}" v-bind="inputAttrs" />
-        <label v-if="inputAttrs.placeholder?.length > 0" class="input__label">{{inputAttrs.placeholder}}</label>
+        <label v-if="inputAttrs.placeholder?.length > 0" class="input__label">{{ inputAttrs.placeholder }}</label>
         <template v-if="haveErrors">
             <div class="input__errors" v-for="error in errors" :key="error">
                 <span class="input__errors-item">{{error}}</span>
