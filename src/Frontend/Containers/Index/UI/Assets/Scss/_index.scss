@@ -1,0 +1,32 @@
+@import "@/Shared/Assets/Scss/vars";
+@import "@/Shared/Assets/Scss/fonts";
+@import "@/Shared/Assets/Scss/indention";
+
+@mixin slogan {
+    color: $primary-color;
+    @include great-vibes-32-regular;
+}
+
+@mixin heading {
+    color: $white-color;
+    @include helvetica-60-bold;
+    @include padding-vertical(20px);
+    &--primary {
+        color: $primary-color;
+    }
+}
+
+@mixin description {
+    color: $white-color;
+    @include inter-16-regular;
+}
+
+@mixin section-padding {
+    padding-top: 120px;
+}
+
+@mixin icon {
+    padding: 10px;
+    border-radius: 6px;
+    background-color: $primary-color;
+}

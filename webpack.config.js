@@ -6,10 +6,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     mode: process.env.NODE_ENV,
     entry: {
-        "app": "./src/index.js",
+        "app": "./src/Frontend/index.js",
     },
     output: {
-        clean: true,
+        clean: false,
         path: path.resolve(__dirname, "public/"),
         filename: "[name].js",
         chunkFilename: "[name].js"
@@ -54,7 +54,7 @@ module.exports = {
     },
     resolve: {
         alias: {
-            "@": path.resolve(__dirname, "src/"),
+            "@": path.resolve(__dirname, "src/Frontend/"),
         },
         extensions: [".js", ".vue", ".json"]
     },

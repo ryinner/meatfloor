@@ -1,0 +1,18 @@
+@mixin font-face-variations($font-family, $url) {
+    @font-face {
+        font-family: "#{$font-family}";
+        src: url('@/Shared/Assets/Fonts/#{$font-family}/#{$url}.ttf') format('woff2 supports variations'),
+            url('@/Shared/Assets/Fonts/#{$font-family}/#{$url}.ttf') format('woff2-variations');
+        font-display: swap;
+    }
+}
+
+@mixin font-face($font-family, $url, $weight, $style) {
+    @font-face {
+        font-family: "#{$font-family}";
+        src: url('@/Shared/Assets/Fonts/#{$font-family}/#{$url}') format("woff2");
+        font-weight: #{$weight};
+        font-display: swap;
+        font-style: $style;
+    }
+}

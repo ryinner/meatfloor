@@ -1,0 +1,31 @@
+<?php
+
+namespace Meatfloor\App;
+
+class Router
+{
+    private static $routes;
+
+    public static function route(string $pattern, string $controller, string $action = 'index')
+    {
+        $pattern = '/^' . str_replace('/', '\/', $pattern) . '$/';
+        self::$routes[$pattern] = ['controller' => $controller, 'action' => $action];
+    }
+
+    public static function execute($url)
+    {
+        foreach (self::$routes as $pattern => $controllerData)
+        {
+            if (preg_match($pattern, $url, $params)) // сравнение идет через регулярное выражение
+            {
+                // соответствие найдено, поэтому удаляем первый элемент из массива $params
+                // который содержит всю найденную строку
+                array_shift($params);
+                $controller = new $controllerData['controller']();
+                return json_encode($controller->{$controllerData['action']}(...array_values($params)), JSON_UNESCAPED_UNICODE);
+            } else {
+                require_once 'index.html';
+            }
+        }
+    }
+}
