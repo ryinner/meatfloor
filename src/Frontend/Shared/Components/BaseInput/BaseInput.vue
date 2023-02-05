@@ -60,7 +60,6 @@ const haveErrors = computed(() => props.errors.length > 0)
         &--error {
             border-bottom: 1px solid $red-color !important;
         }
-
         &:-webkit-autofill,
         &:-webkit-autofill:hover,
         &:-webkit-autofill:focus {
@@ -78,13 +77,26 @@ const haveErrors = computed(() => props.errors.length > 0)
         &:focus {
             color: $black-color;
             padding-bottom: 6px;
-            border-width: 2px;
+            border-width: 1px;
             border-color: $primary-color;
 
             & ~ .input__label {
                 color: $black-color;
                 top: -6px;
                 @include inter-12-bold;
+            }
+        }
+        &--white {
+            color: $white-color;
+            & ~ .input__label {
+                color: $white-color !important;
+            }
+
+            &:focus {
+                color: $white-color !important;
+                & ~ .input__label {
+                    color: $white-color !important;
+                }
             }
         }
     }

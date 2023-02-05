@@ -32,6 +32,6 @@ class AuthController extends BaseController
         if ($jwt = $this->user->auth($this->decodePostAnswer())) {
             return $this->setSuccessAnswer("Вы авторизованы", $jwt);
         }
-        return $this->setErrorAnswer(["form" => "Не верный пароль или нет такого пользователя"]);
+        return $this->setErrorAnswer(["form" => ["Не верный пароль или нет такого пользователя"]]);
     }
 }

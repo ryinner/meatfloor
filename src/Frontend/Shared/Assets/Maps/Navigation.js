@@ -5,7 +5,7 @@ export default [
     },
     {
         name: "Меню",
-        route: "index"
+        route: "menu"
     },
     {
         name: "Блог",

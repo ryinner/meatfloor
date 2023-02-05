@@ -4,7 +4,7 @@ namespace Meatfloor\Controllers;
 
 use Meatfloor\Models\Menu;
 
-class IndexController extends BaseController
+class MenuController extends BaseController
 {
     private Menu $menu;
 
@@ -15,6 +15,9 @@ class IndexController extends BaseController
 
     public function index(): array
     {
-        return $this->menu->getMenuItemsByCategories();
+        return [
+            'categories' => $this->menu->getCategories(),
+            'dishes' => $this->menu->getMenuItems()
+        ];
     }
 }

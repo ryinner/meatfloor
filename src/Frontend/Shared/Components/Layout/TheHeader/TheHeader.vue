@@ -14,7 +14,7 @@
             <div class="header__controls">
                 <TheSearch class="header__button"/>
                 <TheUser class="header__button"/>
-                <TheCart class="header__button"/>
+                <TheCart v-if="false" class="header__button"/>
             </div>
         </div>
     </header>

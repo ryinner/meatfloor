@@ -35,6 +35,14 @@ const hash = generateHashHelper();
     }
 
     &__field {
+        opacity: 0;
+
+        &--white {
+            ~ .checkbox__label {
+                color: $white-color;
+            }
+        }
+
         &:checked + .checkbox__label .checkbox__icon {
             background-color: $primary-color;
             border-color: $primary-color;
