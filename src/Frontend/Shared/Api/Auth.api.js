@@ -1,7 +1,7 @@
 //@ts-check
 import axios from "@/Plugins/Axios";
 
-const prefix = "/Auth";
+const prefix = "/Api/Auth";
 
 /**
  * @function

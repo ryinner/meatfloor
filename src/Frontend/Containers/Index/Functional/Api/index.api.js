@@ -1,6 +1,6 @@
 import axios from "@/Plugins/Axios";
 
-const prefix = "Index";
+const prefix = "/Api/Index";
 
 /**
  * @returns {Promise}

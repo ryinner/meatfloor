@@ -4,11 +4,11 @@
         "module": "ES2022",
         "moduleResolution": "node",
         "paths": {
-            "@/*": ["./src/*"],
+            "@/*": ["./src/Frontend/*"],
         },
         "outDir": "./public/assets/js",
         "checkJs": false,
         "allowJs": true,
     },
-    "include": ["src/**/*"]
+    "include": ["src/Frontend/**/*"]
 }
