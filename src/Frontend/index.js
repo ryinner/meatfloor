@@ -1,5 +1,5 @@
 import { createApp, h } from "vue";
-import App from "./App";
+import App from "./App.vue";
 import pinia from "./Plugins/Pinia";
 import router from "./Plugins/Router";
 import { VScroll } from "./Shared/Directives/VScroll.directive";
