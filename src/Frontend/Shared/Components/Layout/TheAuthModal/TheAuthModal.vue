@@ -7,6 +7,7 @@
             <h4 class="modal-auth__header">
                 <span
                     class="modal-auth__switcher"
+                    :class="{'modal-auth__switcher--active': isAuthComponentActive}"
                     @click="modalTab = 'TheAuth'"
                 >
                     Войти
@@ -14,6 +15,7 @@
                 /
                 <span
                     class="modal-auth__switcher"
+                    :class="{'modal-auth__switcher--active': !isAuthComponentActive}"
                     @click="modalTab = 'TheRegistration'"
                 >
                     Регистрация
@@ -31,7 +33,7 @@
 
 
 <script setup>
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import BaseModal from '../../BaseModal/BaseModal.async';
 import TheAuth from "../TheAuth/TheAuth.vue";
 import TheRegistration from "../TheRegistration/TheRegistration.vue";
@@ -53,8 +55,19 @@ const modalList = {
 }
 
 const modalTab = ref('TheAuth');
+
+const isAuthComponentActive = computed(() => modalTab.value === 'TheAuth');
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@import '@/Shared/Assets/Scss/vars';
 
+.modal-auth {
+    &__switcher {
+        color: $gray-color;
+        &--active {
+            color: $black-color;
+        }
+    }
+}
 </style>

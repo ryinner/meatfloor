@@ -10,7 +10,7 @@
                 <div class="index-hero__slogan">Это вкусно и восхитительно!</div>
                 <div class="index-hero__heading"><h2><span class="index-hero__heading--primary">Ис</span>кусство приготовления пищи</h2></div>
                 <div class="index-hero__description">Лучшие блюда премиального качества от профессионалов</div>
-                <BaseButton class="index-hero__button">Посмотреть меню</BaseButton>
+                <div class="index-hero__button"><RouterLink :to="{name: 'menu'}" class="button button--lg">Посмотреть меню</RouterLink></div >
             </div>
             <div class="index-hero__food">
                 <picture>
@@ -22,7 +22,6 @@
 </template>
 
 <script setup>
-import BaseButton from '@/Shared/Components/BaseButton/BaseButton.vue';
 
 </script>
 
@@ -71,7 +70,7 @@ import BaseButton from '@/Shared/Components/BaseButton/BaseButton.vue';
         @include description;
     }
     &__button {
-        @include margin-vertical(20px);
+        @include margin-vertical(40px);
     }
 }
 </style>
