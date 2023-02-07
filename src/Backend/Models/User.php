@@ -9,6 +9,47 @@ use DateTimeImmutable;
 class User
 {
     private $secretKey = 'bGS6lzFqvvSQ8ALbOxatm7/Vk7mLQyzqaS34Q4oR1ew=';
+
+    public function findWithReservation(object $userData): array
+    {
+        $db = Db::connect();
+
+        $query = $db->prepare('
+            SELECT 
+                u.name as user_name,
+                u.email as user_email,
+                u.phone as user_phone,
+                r.id as reservation_id,
+                r.table_id as reservation_table_id,
+                r.time_from as reservation_time_from,
+                r.time_to as reservation_time_to,
+                r.count as reservation_count
+            FROM users u
+            LEFT JOIN reservation r ON r.user_id = u.id
+            WHERE u.id = :user_id
+        ');
+        $query->execute([
+            'user_id' => $userData->user_id
+        ]);
+        $userInfo = $query->fetchAll();
+
+        $formedUser = [];
+        foreach ($userInfo as $userRow) {
+            $formedUser['name'] = $userRow->user_name;
+            $formedUser['email'] = $userRow->user_email;
+            $formedUser['phone'] = $userRow->user_phone;
+            $formedUser['reservations'][] = [
+                'id' => $userRow->reservation_table_id,
+                'table_id' => $userRow->reservation_table_id,
+                'time_from' => $userRow->reservation_time_from,
+                'time_to' => $userRow->reservation_time_to,
+                'count' => $userRow->reservation_count,
+            ];
+        }
+
+        return $formedUser;
+    }
+
     public function create(object $userData): bool
     {
         unset($userData->rules);

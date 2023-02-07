@@ -46,6 +46,7 @@ const isOpen = ref(false);
         position: absolute;
     }
     &__menu-list {
+        background-color: $black-color;
         border-radius: 6px;
         list-style-type: none;
         border: 1px solid $primary-color;
