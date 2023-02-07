@@ -25,7 +25,7 @@ const errors = ref({});
 
 const registration = () => registrationRequest(new FormData(form.value)).then(response => {
     if (response.data.success) {
-        emit("success");
+        emit("registrationSuccess");
     } else {
         errors.value = response.data.errors;
     }

@@ -11,6 +11,7 @@ class User
     private $secretKey = 'bGS6lzFqvvSQ8ALbOxatm7/Vk7mLQyzqaS34Q4oR1ew=';
     public function create(object $userData): bool
     {
+        unset($userData->rules);
         $db = Db::connect();
         $userData->password = password_hash($userData->password, PASSWORD_DEFAULT);
         $query = $db->prepare("INSERT INTO `users`(`name`, `email`, `phone`, `password`) VALUES (:fio, :email, :phone, :password)");

@@ -1,3 +1,4 @@
+import ProfileRoutes from '@//Containers/Profile/UI/Routes/profile.routes';
 import BookingRoutes from "@/Containers/Booking/UI/Routes/booking.routes";
 import ErrorsRoutes from '@/Containers/Errors/UI/Routes/errors.routes';
 import IndexRoutes from "@/Containers/Index/UI/Routes/index.routes";
@@ -9,6 +10,7 @@ const routes = [].concat(
     BookingRoutes,
     PagesRoutes,
     MenuRoutes,
+    ProfileRoutes,
     ErrorsRoutes,
 );
 
