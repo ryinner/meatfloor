@@ -6,7 +6,7 @@
                 <path d="M2.90527 20.2491C3.82736 18.6531 5.15322 17.3278 6.74966 16.4064C8.34611 15.485 10.1569 15 12.0002 15C13.8434 15 15.6542 15.4851 17.2506 16.4065C18.8471 17.3279 20.1729 18.6533 21.0949 20.2493" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </picture>
-        <TheAuthModal v-if="!userState.isAuthenticated" v-model:isOpen="isOpen" />
+        <TheAuthModal v-if="!userState.isAuthenticated" v-model:isModalOpen="isOpen" />
         <div class="user__menu" v-else-if="isOpen">
             <ul class="user__menu-list">
                 <li class="user__menu-item"><RouterLink class="user__menu-link" :to="{name: 'profile'}">Профиль</RouterLink></li>

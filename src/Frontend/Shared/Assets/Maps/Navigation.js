@@ -17,7 +17,7 @@ export default [
     },
     {
         name: "О нас",
-        route: "index"
+        route: "about-us"
     },
     {
         name: "Контакты",
