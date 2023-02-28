@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const { VueLoaderPlugin } = require("vue-loader");
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
     mode: process.env.NODE_ENV,
@@ -57,30 +58,26 @@ module.exports = {
         },
         extensions: [".js", ".vue", ".json"]
     },
-    devtool: "eval-cheap-source-map",
+    optimization: {
+        emitOnErrors: true,
+        minimizer: [
+            new TerserPlugin({
+                parallel: true,
+                terserOptions: {
+                    format: {
+                        comments: false,
+                    }
+                },
+                extractComments: false,
+            }),
+        ],
+    },
+    devtool: "hidden-cheap-source-map",
     plugins: [
         new VueLoaderPlugin(),
         new webpack.DefinePlugin({
             __VUE_OPTIONS_API__: false,
             __VUE_PROD_DEVTOOLS__: false
-        }),
-        new webpack.DefinePlugin({
-            "process.env": JSON.stringify({
-                API_URL: (process.env.NODE_ENV === "production" ? 'http://a90686jj.beget.tech/' : 'http://meatfloor/')
-            })
         })
-    ],
-    devServer: {
-        static:  path.join(__dirname, "public"),
-        historyApiFallback: {
-            index: "index.html"
-        },
-        hot: true,
-        headers: {
-            "Access-Control-Allow-Origin": "*"
-        },
-        host: 'localhost',
-        compress: true,
-        port: 3000,
-    },
+    ]
 };
