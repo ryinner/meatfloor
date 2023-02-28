@@ -21,6 +21,6 @@ export default [
     },
     {
         name: "Приватность",
-        route: "index"
+        route: "privacy"
     },
 ]

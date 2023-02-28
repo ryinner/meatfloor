@@ -57,7 +57,8 @@
         "vue/custom-event-name-casing": ["error", "camelCase"],
         "vue/multi-word-component-names": ["error", {
             "ignores": [
-                "Error404"
+                "Error404",
+                "Privacy"
             ]
         }]
     }

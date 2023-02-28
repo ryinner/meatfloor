@@ -1,6 +1,6 @@
 <template>
     <div class="users-agreement">
-        <h1 class="users-agreement__heading">Пользовательское соглашение</h1>
+        <BaseHeading class="users-agreement__heading">Пользовательское соглашение</BaseHeading>
         <div class="users-agreement__text">
             <section class="users-agreement__main">
                 <h2 class="users-agreement__section-heading">Введение</h2>
@@ -64,6 +64,11 @@
         </div>
     </div>
 </template>
+
+<script setup>
+import BaseHeading from '@/Shared/Components/BaseHeading/BaseHeading.vue';
+
+</script>
 
 <style lang="scss">
 @import "@/Containers/Pages/UI/Assets/Scss/pages-text";
