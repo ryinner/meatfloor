@@ -128,7 +128,6 @@
     }
     &__statistic-description {
         color: $white-color;
-        align-self: end;
         @include helvetica-40-bold;
     }
 }
