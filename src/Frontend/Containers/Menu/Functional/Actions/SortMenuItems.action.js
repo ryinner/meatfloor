@@ -2,11 +2,10 @@ export default function (menuItems, form) {
     const formData = new FormData(form);
     const dataForSorting = {};
 
-
     for (const [key, value] of formData) {
         if (dataForSorting[key] !== undefined) {
             if (dataForSorting[key] instanceof Array) {
-                dataForSorting[key].push(dataForSorting[key]);
+                dataForSorting[key].push(value);
             } else {
                 dataForSorting[key] = [dataForSorting[key], value];
             }
