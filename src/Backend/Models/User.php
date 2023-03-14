@@ -2,14 +2,10 @@
 
 namespace Meatfloor\Models;
 
-use Firebase\JWT\JWT;
 use Meatfloor\App\Db;
-use DateTimeImmutable;
 
 class User
 {
-    private $secretKey = 'bGS6lzFqvvSQ8ALbOxatm7/Vk7mLQyzqaS34Q4oR1ew=';
-
     public function findWithReservation(object $userData): array
     {
         $db = Db::connect();
@@ -59,7 +55,7 @@ class User
         return $query->execute((array)$userData);
     }
 
-    public function auth(object $userData): false|string
+    public function auth(object $userData): object
     {
         $db = Db::connect();
         $query = $db->prepare("SELECT * FROM `users` WHERE `email` = :email OR `phone` = :phone");
@@ -70,24 +66,8 @@ class User
         $userDb = $query->fetch();
         if ($userDb && password_verify($userData->password, $userDb->password)) {
             unset($userDb->password);
-            $jwt = $this->createJwt($userDb);
-            return $jwt;
+            return $userDb;
         }
         return false;
-    }
-
-    public function createJwt(object $user): string
-    {
-        $issuedAt = new DateTimeImmutable();
-        $expire = $issuedAt->modify('+6 minutes')->getTimestamp();
-        return JWT::encode(
-            [
-                'iat' => $issuedAt,
-                'exp' => $expire,
-                'user' => $user,
-            ],
-            $this->secretKey,
-            'HS256'
-        );
     }
 }

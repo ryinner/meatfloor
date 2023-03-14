@@ -29,8 +29,8 @@ class AuthController extends BaseController
 
     public function auth()
     {
-        if ($jwt = $this->user->auth($this->decodePostAnswer())) {
-            return $this->setSuccessAnswer("Вы авторизованы", $jwt);
+        if ($user = $this->user->auth($this->decodePostAnswer())) {
+            return $this->setSuccessAnswer("Вы авторизованы", $user);
         }
         return $this->setErrorAnswer(["form" => ["Не верный пароль или нет такого пользователя"]]);
     }

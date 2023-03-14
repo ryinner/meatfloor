@@ -4,8 +4,5 @@
         "psr-4": {
             "Meatfloor\\": "src/Backend/"
         }
-    },
-    "require": {
-        "firebase/php-jwt": "^6.3"
     }
 }
