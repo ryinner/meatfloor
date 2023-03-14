@@ -55,7 +55,7 @@ class User
         return $query->execute((array)$userData);
     }
 
-    public function auth(object $userData): object
+    public function auth(object $userData): false|object
     {
         $db = Db::connect();
         $query = $db->prepare("SELECT * FROM `users` WHERE `email` = :email OR `phone` = :phone");
