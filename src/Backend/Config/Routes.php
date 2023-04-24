@@ -15,6 +15,6 @@ Router::route('/Api/Auth/Registration', AuthController::class, "registration");
 Router::route('/Api/Auth', AuthController::class, "auth");
 
 Router::route('/Api/Reservation/Create', ReservationController::class, "create");
-Router::route('/Api/Reservation/remove', ReservationController::class, "remove");
+Router::route('/Api/Reservation/Remove', ReservationController::class, "remove");
 
 Router::route('/Api/Profile', ProfileController::class);

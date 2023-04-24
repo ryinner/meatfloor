@@ -22,10 +22,11 @@ class User
                 r.count as reservation_count
             FROM users u
             LEFT JOIN reservation r ON r.user_id = u.id
-            WHERE u.id = :user_id
+            WHERE u.id = :user_id AND DATE(r.time_from) >= :today
         ');
         $query->execute([
-            'user_id' => $userData->user_id
+            'user_id' => $userData->user_id,
+            'today' => date('Y-m-d')
         ]);
         $userInfo = $query->fetchAll();
 
@@ -35,7 +36,7 @@ class User
             $formedUser['email'] = $userRow->user_email;
             $formedUser['phone'] = $userRow->user_phone;
             $formedUser['reservations'][] = [
-                'id' => $userRow->reservation_table_id,
+                'id' => $userRow->reservation_id,
                 'table_id' => $userRow->reservation_table_id,
                 'time_from' => $userRow->reservation_time_from,
                 'time_to' => $userRow->reservation_time_to,
