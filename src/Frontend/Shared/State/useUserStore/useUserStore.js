@@ -2,13 +2,14 @@ import { defineStore } from "pinia";
 import { computed, ref } from "vue";
 
 export const useUserStore = defineStore("userStore", () => {
-    const user = ref(localStorage.getItem("user"));
+    const userParsed = localStorage.getItem("user") === null ? null : JSON.parse(localStorage.getItem("user"));
+    const user = ref(userParsed);
 
     const isAuthenticated = computed(() => user.value ? true : false);
 
     const authenticate = (token) => {
         user.value = token;
-        localStorage.setItem("user", token);
+        localStorage.setItem("user", JSON.stringify(token));
     };
 
     const logout = () => {

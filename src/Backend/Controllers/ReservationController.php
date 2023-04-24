@@ -21,4 +21,9 @@ class ReservationController extends BaseController
             return $this->setErrorAnswer(['form' => 'На это время уже забронирован столик']);
         }
     }
+
+    public function remove()
+    {
+        $this->reservation->remove((int)$this->decodePostAnswer()->id);
+    }
 }

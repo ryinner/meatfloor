@@ -24,6 +24,15 @@ class Reservation
         }
     }
 
+    public function remove(int $id): void
+    {
+        $db = Db::connect();
+        $query = $db->prepare("DELETE FROM `reservation` WHERE `id` = :id");
+        $query->execute([
+            'id' => $id
+        ]);
+    }
+
     private function isReserved (int $tableId, string $date, string $timeFrom, string $timeTo): bool
     {
         $db = Db::connect();
