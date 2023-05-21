@@ -13,7 +13,7 @@
                 <div class="reservation__time">С {{ pickTimeHelper(reservation.time_from) }} до {{ pickTimeHelper(reservation.time_to) }}</div>
                 <div class="reservation__count">Ждем вас в количестве {{ reservation.count }} чел.</div>
                 <div class="reservation__date">{{ dateConverterHelper(reservation.time_from) }}</div>
-                <div class="reservation__button"><BaseButton size="sm" @click="remove(reservation.id)">Удалить</BaseButton></div>
+                <div class="reservation__button"><BaseButton size="sm" @click="remove(reservation.id)">Отменить</BaseButton></div>
             </article>
         </section>
     </div>

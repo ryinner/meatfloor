@@ -1,5 +1,5 @@
 <template>
-    <div class="booking-tables-table">
+    <div class="booking-tables-table" @click="isReserving = true">
         <div class="booking-tables-table__content">
             <svg
                 id="Layer_1"
@@ -9,7 +9,6 @@
                 xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 class="booking-tables-table__icon"
-                @click="isReserving = true"
             >
                 <g>
                     <path
@@ -25,11 +24,11 @@
             </svg>
             <div class="booking-tables-table__name">Столик №{{ id }}</div>
         </div>
+        <BookingReservingForm 
+            v-model:is-reserving="isReserving"
+            :id="id"
+        />
     </div>
-    <BookingReservingForm 
-        v-model:is-reserving="isReserving"
-        :id="id"
-    />
 </template>
 
 <script setup>
@@ -49,10 +48,25 @@ const isReserving = ref(false);
 <style lang="scss">
 @import "@/Shared/Assets/Scss/vars";
 @import "@/Shared/Assets/Scss/fonts";
+@import "@/Shared/Assets/Scss/indention";
 .booking-tables-table {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    position: relative;
+    transition: 300ms ease-in;
+
+    &:hover {
+        cursor: pointer;
+        transition: 300ms ease-out;
+
+        .booking-tables-table__icon, .booking-tables-table__name {
+            transition: 300ms ease-out;
+            fill: $primary-color;
+            color: $primary-color;
+        }
+    }
 
     &__content {
         display: flex;
@@ -62,6 +76,7 @@ const isReserving = ref(false);
     &__name {
         text-align: center;
         color: $white-color;
+        transition: 300ms ease-in;
         @include inter-16-regular;
     }
 
@@ -69,12 +84,23 @@ const isReserving = ref(false);
         width: 128px;
         transition: 300ms ease-in;
         fill: $brawn-yellow-color;
+    }
 
-        &:hover {
-            cursor: pointer;
-            transition: 300ms ease-out;
-            fill: $primary-color;
-        }
+    &:not(:nth-last-child(-1n+3))::after {
+        width: 80%;
+        content: "";
+        border: 1px solid $brawn-color;
+        @include margin-vertical(12px);
+    }
+
+    &:nth-child(odd)::before {
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        content: url("@/Containers/Booking/UI/Assets/Icons/window.png");
+        position: absolute;
+        color: $white-color;
+        @include helvetica-14-bold;
     }
 }
 </style>
