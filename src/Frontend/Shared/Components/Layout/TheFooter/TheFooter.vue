@@ -124,6 +124,7 @@ import NavigationList from "../NavigationList/NavigationList.vue";
         position: absolute;
         right: 0;
         bottom: -2px;
+        filter: blur(1px) brightness(0.9);
     }
 }
 </style>
