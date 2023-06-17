@@ -20,7 +20,7 @@ export default function (menuItems, form) {
         }
 
         if (dataForSorting.categories_ids !== undefined && dataForSorting.categories_ids.length > 0) {
-            if (!item.categories.find(category => dataForSorting.categories_ids.includes(category.id))) return false;
+            if (!item.categories.find(category => dataForSorting.categories_ids.includes(String(category.id)))) return false;
         }
 
         return true;
