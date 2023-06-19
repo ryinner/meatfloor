@@ -36,7 +36,7 @@ class Reservation
     private function isReserved (int $tableId, string $date, string $timeFrom, string $timeTo): bool
     {
         $db = Db::connect();
-        $query = $db->prepare("SELECT * FROM `reservation` WHERE ((time_from BETWEEN :time_from AND :time_to) OR (time_to BETWEEN :time_from AND :time_to)) AND table_id = :table_id");
+        $query = $db->prepare("SELECT * FROM `reservation` WHERE ((time_from BETWEEN :time_from AND :time_to) OR (time_to BETWEEN :time_from AND :time_to) OR (:time_from BETWEEN time_from AND time_to) OR (:time_to BETWEEN time_from AND time_to)) AND table_id = :table_id");
         $query->execute([
             'table_id' => $tableId,
             'time_from' => date('Y-m-d H:i:s', strtotime("{$date} {$timeFrom}")),
